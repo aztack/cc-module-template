@@ -22,7 +22,7 @@ module.exports = {
       "label": "Panel title"
     }
   },
-  complete: function(data opts) {
+  complete: function(data, opts) {
     const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName);
     if (data.name.match(/comp-/)){
       $fs.unlinkSync($path.resolve(cwd, 'util.js'));
