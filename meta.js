@@ -11,19 +11,15 @@ module.exports = {
       "type": "string",
       "required": true,
       "label": "Project description",
-      "default": "A Cocos Creator Custom Panel"
+      "default": "A Cocos Creator Module"
     },
     "author": {
       "type": "string",
       "label": "Author"
-    },
-    "panelTitle": {
-      "type": "string",
-      "label": "Panel title"
     }
   },
   complete: function(data, opts) {
-    const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName);
+    const cwd = $path.join(process.cwd(), data.inPlace ? '' : data.destDirName);
     if (data.name.match(/comp-/)){
       $fs.unlinkSync($path.resolve(cwd, 'util.js'));
       $fs.unlinkSync($path.resolve(cwd, 'index.js'));
