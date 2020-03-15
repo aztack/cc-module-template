@@ -23,12 +23,15 @@ module.exports = {
     if (data.name.match(/comp-/)){
       $fs.unlinkSync($path.resolve(cwd, 'util.js'));
       $fs.unlinkSync($path.resolve(cwd, 'index.js'));
+      $fs.renameSync($path.resolve(cwd, 'comp.js'), $path.resolve(cwd, `${data.name}.js`))
     } else if (data.name.match(/util-/)) {
       $fs.unlinkSync($path.resolve(cwd, 'comp.js'));
       $fs.unlinkSync($path.resolve(cwd, 'index.js'));
+      $fs.renameSync($path.resolve(cwd, 'util.js'), $path.resolve(cwd, `${data.name}.js`))
     } else {
       $fs.unlinkSync($path.resolve(cwd, 'comp.js'));
       $fs.unlinkSync($path.resolve(cwd, 'util.js'));
+      $fs.renameSync($path.resolve(cwd, 'index.js'), $path.resolve(cwd, `${data.name}.js`))
     }
     opts.chalk.green('Done!');
   }
